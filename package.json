@@ -10,8 +10,7 @@
   "author": "saba <abdullahayomide04@gmail.com>",
   "scripts": {
     "start": "node index.js",
-    "start:dev": "nodemon index.js",
-    "build": "echo 'No build step required'"
+    "start:dev": "nodemon index.js"
   },
   "license": "MIT",
   "dependencies": {

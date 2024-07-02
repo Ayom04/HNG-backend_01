@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 app.get("/api/hello", async (req, res) => {
   const { visitor_name } = req.query;
-  const clientIp = req.clientIp;
+  const clientIp = "64.226.76.244";
 
   try {
     console.log(clientIp);
@@ -47,6 +47,7 @@ app.get("/api/hello", async (req, res) => {
       } degrees Celsius in ${city}`,
     });
   } catch (error) {
+    console.log(error);
     res
       .status(500)
       .json({ status: 400, message: error.message || "An error occured" });

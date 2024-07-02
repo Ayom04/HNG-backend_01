@@ -24,7 +24,6 @@ app.get("/api/hello", async (req, res) => {
   const clientIp = req.clientIp;
 
   try {
-    console.log(clientIp, process.env.OPENWEATHER_API_KEY);
     if (!visitor_name) throw new Error("Please provide a visitor name");
     const getLocation = await axios.get(`https://ipapi.co/${clientIp}/json/`);
 

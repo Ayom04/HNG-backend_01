@@ -8,7 +8,11 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware to get the IP address of the request
 app.use((req, res, next) => {
-  req.clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+  req.clientIp =
+    req.headers["x-forwarded-for"] ||
+    req.connection.remoteAddress ||
+    req.ip ||
+    ip.address();
   next();
 });
 
@@ -20,6 +24,7 @@ app.get("/api/hello", async (req, res) => {
   const clientIp = req.clientIp;
 
   try {
+    console.log(clientIp);
     if (!visitor_name) throw new Error("Please provide a visitor name");
     const getLocation = await axios.get(`https://ipapi.co/${clientIp}/json/`);
 

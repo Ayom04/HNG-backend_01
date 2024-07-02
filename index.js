@@ -12,6 +12,9 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (req, res) => {
+  res.status(200).json({ status: 200, message: "Welcome to my API" });
+});
 app.get("/api/hello", async (req, res) => {
   const { visitor_name } = req.query;
   const clientIp = req.clientIp;

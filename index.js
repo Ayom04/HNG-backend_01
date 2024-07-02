@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 app.get("/api/hello", async (req, res) => {
   const { visitor_name } = req.query;
-  const clientIp = "64.226.76.244";
+  const clientIp = req.clientIp;
 
   try {
     console.log(clientIp, process.env.OPENWEATHER_API_KEY);
